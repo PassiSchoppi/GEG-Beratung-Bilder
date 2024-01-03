@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verschiedene Elemente</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .subtitle {
+            font-size: small;
+            text-align: left;
+            margin-left: 10px;
+            margin-top: 0px;
+            font-style: italic;
+        }
+        
+        .final-image {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        .page-number {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 1.5cm;
+        }
+
+        /* Hier können die Ränder angepasst werden: */
+        body {
+            padding-top: 0.63cm;
+            padding-left: 1.27cm;
+            padding-right: 1.25cm;
+            padding-bottom: 0.95cm;
+        }
+
+        h1 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11pt;
+            margin-bottom: 6pt;
+        }
+        p {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11pt;
+            margin-top: 6pt;
+            margin-bottom: 6pt;
+        }
+        #page-number {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11pt;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="margin-top: 0px;">Preisentwicklung bei den Energiekosten (Historie und Prognose)</h1>
+    <p>Die folgenden vier Diagramme zeigen die historischen Energiepreise der Brennstoffe Erdgas, Heizöl, Holzpellets und Strom.
+        Die dargestellten Informationen beziehen sich auf den Zeitraum vom 01.01.2023 bis heute, den <a id="currentDate"></a>.
+</p>
+
+    <div class="image-container">
+        <div>
+            <img src="https://github.com/PassiSchoppi/GEG-Beratung-Bilder/raw/main/Erdgas.png">
+            <p class="subtitle">Quelle: https://www.verivox.de/gas/gaspreise/</p>
+        </div>
+        <div>
+            <img src="https://raw.githubusercontent.com/PassiSchoppi/GEG-Beratung-Bilder/main/Strom.png">
+            <p class="subtitle">Quelle: https://www.verivox.de/strom/strompreise/</p>
+        </div>
+        <div>
+            <img src="https://github.com/PassiSchoppi/GEG-Beratung-Bilder/raw/main/Oil.png">
+            <p class="subtitle">Quelle: https://www.tecson.de/heizoelpreise.html</p>
+        </div>
+        <div>
+            <img src="https://github.com/PassiSchoppi/GEG-Beratung-Bilder/raw/main/Pellets.png">
+            <p class="subtitle">Quelle: https://www.heizpellets24.de/charts/holzpellets/</p>
+        </div>
+    </div>
+
+    <p>Das folgende Diagramm zeigt die prognostizierte Entwicklung der Energiepreise bis 2042 für die Brennstoffe Strom, Biomethan, Erdgas, Fernwärme, Heizöl und Biomasse (Holzpellets).
+        Die Daten liegen der Studie "Heizen mit 65% erneuerbaren Energien - Begleitende Analysen zur Ausgestalltung der Regelung aus dem Koalitionsvertrag 2021" vom 03.04.2023
+        unter Projektleitung des ifeu - Institut für Energie- und Umweltforschung Heidelberg zugrunde.
+        
+    </p>
+
+    <img class="final-image"
+        src="https://raw.githubusercontent.com/PassiSchoppi/GEG-Beratung-Bilder/main/Entwicklung_Prognose.png"
+        alt="Abschlussbild"
+    >
+    
+    <!--<p>Hier ist etwas Text, den du einfügen kannst.</p>-->
+
+    <!--<section class="mod_pepesale_chart mod_chart block">
+        <div class="pepesale_chart block" id="pepesale_chart_desktop_1"
+            style="min-width:350px;height:650px;margin:0 auto;"></div>
+        <div class="secondlegend" id="secondlegend_1"></div>
+    </section>-->
+    <div class="page-number">3/3</span></div>
+</body>
+
+</html>
+
+<script>
+    // Get current date
+    var currentDate = new Date();
+
+    // Format date as dd.mm.yyyy
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1; // Months are zero-based
+    var year = currentDate.getFullYear();
+
+    // Add leading zero if day or month is less than 10
+    day = day < 10 ? '0' + day : day;
+    month = month < 10 ? '0' + month : month;
+
+    // Display the formatted date
+    var formattedDate = day + '.' + month + '.' + year;
+    document.getElementById('currentDate').innerText = formattedDate;
+</script>
