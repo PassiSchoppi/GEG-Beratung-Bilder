@@ -78,6 +78,24 @@
 
 <body>
     <h1 style="margin-top: 0px;">Preisentwicklung bei den Energiekosten (Historie und Prognose)</h1>
+    <span id="latest-commit-date" style="display:inline;" class="no-print"></span>
+		<style>
+		@media print {
+			.no-print {
+				display: none !important;
+			}
+		}
+		</style>
+		<script>
+			fetch('https://api.github.com/repos/PassiSchoppi/GEG-Beratung-Bilder/commits')
+				.then(response => response.json())
+				.then(data => {
+					if (data && data.length > 0) {
+						const date = data[0].commit.author.date;
+						document.getElementById('latest-commit-date').textContent = "Stand: " + date;
+					}
+				});
+		</script>
     <p>Die folgenden vier Diagramme zeigen die historischen Energiepreise der Brennstoffe Erdgas, Heizöl, Holzpellets und Strom.
         Die dargestellten Informationen beziehen sich auf den Zeitraum vom 01.01.2023 bis heute, den <a id="currentDate"></a>.
 </p>
@@ -140,4 +158,5 @@
     // Display the formatted date
     var formattedDate = day + '.' + month + '.' + year;
     document.getElementById('currentDate').innerText = formattedDate;
+
 </script>
